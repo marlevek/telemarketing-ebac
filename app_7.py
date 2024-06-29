@@ -6,6 +6,7 @@ import seaborn           as sns
 import matplotlib.pyplot as plt
 from PIL                 import Image
 from io                  import BytesIO
+from openpyxl.workbook import Workbook
 
 # Set no tema do seaborn para melhorar o visual dos plots
 custom_params = {"axes.spines.right": False, "axes.spines.top": False}
@@ -39,7 +40,7 @@ def to_excel(df):
     output = BytesIO()
     writer = pd.ExcelWriter(output)
     df.to_excel(writer, index=False, sheet_name='Sheet1')
-    writer.save()
+    #writer.save()
     processed_data = output.getvalue()
     return processed_data
 
